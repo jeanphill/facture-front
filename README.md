@@ -24,3 +24,11 @@ gulp serve
 
 `git branch` : liste les branches
 
+# Objectifs
+Nous voulons créer un système de carnets de contacts. Un utilisateur doit être capable d'ajouter des contacts et de gérer sa liste de contacts.
+
+## Etape 1
+Comprendre le stack, c'est à dire comprendre la structure du code.
+
+## Etape 2
+Développer l'application. Pour ce faire il faudra supprimer les fichiers existants dans `components` et adapter `main`
