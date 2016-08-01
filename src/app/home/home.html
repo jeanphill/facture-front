@@ -1,6 +1,8 @@
 <div class="container">
   <dic class="row">
     <ul>
+      <!-- affichage des notebook avec la directive notebook.directive (element, restrict 'E') -->
+      <!-- dans data on met l'objet notebook(id, title) qui est dans le service notebook.service -->
       <notebook ng-repeat="notebook in home.notebook" data="notebook"></notebook>
     </ul>
   </div>

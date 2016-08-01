@@ -5,8 +5,9 @@
     .module('stackTuto')
     .service('notebook', notebook);
 
-  /** @ngInject */
+  // Le service te servira à récupérer les données, ici on les simule en créant un object javascript
   function notebook() {
+    // data est un objet javascript
     var data = [
       {
         'id': 0,

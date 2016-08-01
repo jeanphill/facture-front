@@ -7,6 +7,6 @@
 
   function HomeController(notebook) {
     var vm = this;
-    vm.notebook = notebook.getNotebook();
+    vm.notebook = notebook.getNotebook(); // récupère l'object javascript data dans notebook.service
   }
 })();
