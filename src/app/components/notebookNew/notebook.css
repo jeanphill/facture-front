@@ -1,0 +1,17 @@
+.btn-primary{
+  margin-right: 10px;
+}
+.container{
+  margin: 20px 0;
+}
+
+#apstMoleculeModal .form-group {
+  padding-right:20px;
+  position:relative;
+}
+
+#apstMoleculeModal .help {
+  position:absolute;
+  right:-8px;
+  top:12px;
+}

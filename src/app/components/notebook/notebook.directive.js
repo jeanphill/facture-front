@@ -23,7 +23,7 @@
       var notebk = this;
 
       notebk.openNotebk = function() { // fonction qui ouvre une facture (note)
-        console.log('open', notebk.data.id);
+        console.log('ovffgfgn', notebk.data.id);
       }
     }
   }

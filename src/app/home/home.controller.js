@@ -6,7 +6,7 @@
     .controller('HomeController', HomeController);
 
   function HomeController(notebook) {
-    var vm = this;
-    vm.notebook = notebook.getNotebook(); // récupère l'object javascript data dans notebook.service
+    var home = this;
+    home.notebook = notebook.getNotebook(); // récupère l'object javascript data dans notebook.service
   }
 })();
