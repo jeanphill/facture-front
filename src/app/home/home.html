@@ -1,9 +1,9 @@
 <div class="container">
-  <dic class="row">
+  <div class="row">
+    <button ng-click="home.newCarnet()" class="btn btn-success">Ajouter carnet</button>
+    <input type="text" placeholder="nom du carnet" ng-model="home.carnetTitle"/>
     <ul>
-      <!-- affichage des notebook avec la directive notebook.directive (element, restrict 'E') -->
-      <!-- dans data on met l'objet notebook(id, title) qui est dans le service notebook.service -->
-      <notebook ng-repeat="notebook in home.notebook" data="notebook"></notebook>
+      <carnet ng-repeat="carnet in home.carnets" home-carnet="carnet"></carnet>
     </ul>
   </div>
 </div>

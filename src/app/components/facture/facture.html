@@ -1,0 +1,21 @@
+<li>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th><input type="checkbox" /></th>
+        <th>Nom du Produit</th>
+        <th>Prix</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="produit in factureCtrl.data.produits">
+        <td>
+          <input type="checkbox"/></td>
+        <td>
+          <input type="text" class="form-control" value="{{ produit.nom }}" required/></td>
+        <td>
+          <input class="form-control" value="{{ produit.prix }}"required/></td>
+      </tr>
+    </tbody>
+  </table>
+</li>

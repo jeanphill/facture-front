@@ -5,8 +5,12 @@
     .module('stackTuto')
     .controller('HomeController', HomeController);
 
-  function HomeController(notebook) {
+  function HomeController(carnet) {
     var home = this;
-    home.notebook = notebook.getNotebook(); // récupère l'object javascript data dans notebook.service
+    home.carnets = carnet.getCarnets(); // récupère l'object javascript data dans notebook.service
+
+    home.newCarnet = function() {
+      carnet.addCarnet(home.carnetTitle);
+    }
   }
 })();

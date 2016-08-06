@@ -13,6 +13,12 @@
         templateUrl: 'app/home/home.html',
         controller: 'HomeController',
         controllerAs: 'home'
+      })
+      .state('pagecarnet', {
+        url: '/carnet/:carnetId',
+        templateUrl: 'app/pagecarnet/pagecarnet.html',
+        controller: 'PagecarnetController',
+        controllerAs: 'pCarnet'
       });
 
     $urlRouterProvider.otherwise('/');
