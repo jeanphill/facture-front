@@ -22,10 +22,12 @@
     function FactureController($location, facture) {
       var factureCtrl = this;
 
+      factureCtrl.deleted = false;
+
       factureCtrl.addProduit = function() {
         factureCtrl.facture.produits.push({
-          nom: '',
-          prix: ''
+          name: '',
+          price: ''
         });
       }
 
@@ -34,24 +36,37 @@
       }
 
       factureCtrl.saveFacture = function() {
-        facture.save(factureCtrl.facture);
+        facture.save(factureCtrl.facture)
+          .then(function success(res) {
+            console.log(res);
+          }, function error(res) {
+            console.log(res);
+          });
       }
 
       factureCtrl.supprFacture = function() {
-        facture.delete(factureCtrl.facture);
+        facture.delete(factureCtrl.facture)
+          .then(function success(res) {
+            if(res.data.success) factureCtrl.deleted = true;
+            else console.log('delete pas marché');
+          }, function error(res) {
+            console.log(res);
+          });
       }
-
 
       factureCtrl.getTotal = function () {
         var total = 0;
-        for (var i=0; i < factureCtrl.produits.length; i++)
-        {
-          var prod = factureCtrl.produits[i];
-          total += prod.prix;
+        if(!factureCtrl.facture.produits) return total;
+        for (var i=0; i < factureCtrl.facture.produits.length; i++) {
+          var prod = factureCtrl.facture.produits[i];
+          total += Number(prod.price);
         }
         return total;
       }
 
+      factureCtrl.isDeleted = function() {
+        return factureCtrl.deleted;
+      }
 
     }
   }

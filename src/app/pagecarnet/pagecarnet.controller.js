@@ -12,7 +12,6 @@
     facture.getFactures(pCarnet.id)
       .then(function success(res) {
         pCarnet.factures = res.data.factures;
-        console.log(res.data);
       }, function error(res) {
         console.log(res);
       });
@@ -20,7 +19,8 @@
     pCarnet.newFacture = function() {
       facture.new(pCarnet.id)
         .then(function success(res) {
-          pCarnet.factures.push([]);
+          if(res.data.success) pCarnet.factures.push(res.data.facture);
+          else console.log('save facture pas marché');
         }, function error(res) {
           console.log(res);
         });

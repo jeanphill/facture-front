@@ -25,15 +25,20 @@
     }
 
     this.delete = function(facture) {
-      var index = factures.indexOf(facture);
-      factures.splice(index, 1);
-      console.log(factures);
+      return $http({
+        method: 'DELETE',
+        headers: { 'x-access-token': localStorageService.get('session') },
+        url: apiUrl.concat('/facture/' + facture._id)
+      });
     }
 
     this.save = function(pFacture) {
-      for(var facture in factures) {
-        if(factures[facture].id == pFacture.id) factures[facture] = pFacture;
-      }
+      return $http({
+        method: 'PATCH',
+        headers: { 'x-access-token': localStorageService.get('session') },
+        data: JSON.stringify(pFacture),
+        url: apiUrl.concat('/facture/' + pFacture._id)
+      });
     }
   }
 })();

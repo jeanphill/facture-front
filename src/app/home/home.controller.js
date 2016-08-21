@@ -5,24 +5,38 @@
     .module('stackTuto')
     .controller('HomeController', HomeController);
 
-  function HomeController(carnet) {
+  function HomeController($location, carnet, login, localStorageService) {
     var home = this;
     carnet.getCarnets()
       .then(function success(res) {
         home.carnets = res.data.carnets;
       }, function error(res) {
         console.log(res);
-      }); // récupère l'object javascript data dans notebook.service
+      });
 
     home.newCarnet = function() {
       carnet.addCarnet(home.carnetTitle)
         .then(function success(res) {
-          home.carnets.push({ title: home.carnetTitle });
+          if(res.data.success) home.carnets.push(res.data.carnet);
+          else console.log('save carnet pas marché');
         }, function error(res) {
           console.log(res);
         });
     }
 
+    home.logout = function() {
+      login.logout()
+        .then(function success(res) {
+          if(res.data.success) {
+            localStorageService.remove('session');
+            $location.path('/login');
+          } else {
+            console.log('deconnexion pas marché');
+          }
+        }, function error(res) {
+          console.log(res);
+        });
+    }
 
   }
 })();

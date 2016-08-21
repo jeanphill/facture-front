@@ -1,6 +1,6 @@
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
-<li>
+<li ng-if="!factureCtrl.isDeleted()">
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
@@ -19,14 +19,14 @@
               <td>
                 <button ng-click="factureCtrl.supprProduit($index)">X</button>
               <td>
-                <input type="text" class="form-control" ng-model="produit.nom" required/></td>
+                <input type="text" class="form-control" ng-model="produit.name" required/></td>
               <td>
-                <input class="form-control" ng-model="produit.prix" required/></td>
+                <input class="form-control" ng-model="produit.price" required/></td>
             </tr>
             <tr>
               <td></td>
               <td></td>
-              <td><strong>Total :{{ getTotal() }}</strong></td>
+              <td><strong>Total : {{ factureCtrl.getTotal() }}€</strong></td>
             </tr>
             </tbody>
           </table>
@@ -35,12 +35,9 @@
             <input type="button" class="btn btn-success pull-right" value="Enregistrer la facture" ng-click="factureCtrl.saveFacture()" />
             <input type="button" class="btn btn-primary addnew pull-right" value="Ajouter un produit" ng-click="factureCtrl.addProduit()">
           </div>
-          <br/> <br/> <br/> <br/>
-
             <a class="btn btn-info btn-lg" ng-click="factureCtrl.totalFacture()"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter au panier</a>
         </div>
       </div>
     </div>
   </div>
 </li>
-

@@ -1,5 +1,6 @@
-
-<li ng-click="carnetCtrl.openCarnet()" class="thumbnail notebook col-md-3 text-center">{{ carnetCtrl.homeCarnet.title }}
-  <br/><br/>
+<li ng-if="!carnetCtrl.isDeleted()" class="thumbnail col-md-3 text-center">
   <button ng-click="carnetCtrl.supprCarnet()">Supprimer un carnet</button>
+  <div class="notebook" ng-click="carnetCtrl.openCarnet()">
+    <p>{{ carnetCtrl.homeCarnet.title }}</p>
+  </div>
 </li>

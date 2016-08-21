@@ -5,7 +5,6 @@
     .module('stackTuto')
     .config(routerConfig);
 
-  /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
