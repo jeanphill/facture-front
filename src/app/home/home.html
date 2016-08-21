@@ -1,9 +1,27 @@
-<div class="container">
-  <dic class="row">
-    <ul>
-      <!-- affichage des notebook avec la directive notebook.directive (element, restrict 'E') -->
-      <!-- dans data on met l'objet notebook(id, title) qui est dans le service notebook.service -->
-      <notebook ng-repeat="notebook in home.notebook" data="notebook"></notebook>
-    </ul>
+<div class="container theme-showcase" role="main">
+
+  <button type="button" ng-click="home.newCarnet()" class="btn btn-primary btn-lg active">Ajouter carnet</button>
+
+  <div class="col-xs-4">
+    <input type="text" class="form-control" placeholder="Nom du carnet a Ajouter" ng-model="home.carnetTitle" />
+  </div>
+
+  <br/> <br/> <br/> <br/>
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+
+
+        <br/> <br/> <br/> <br/>
+
+        <ul>
+          <carnet ng-repeat="carnet in home.carnets" home-carnet="carnet"></carnet>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
+
+

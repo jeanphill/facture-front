@@ -4,7 +4,6 @@
 
   angular
     .module('stackTuto')
-    .constant('malarkey', malarkey)
-    .constant('moment', moment);
+    .constant('apiUrl', 'http://localhost:8000/api');
 
 })();

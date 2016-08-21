@@ -1,0 +1,23 @@
+<div class=" col-sm-6 col-sm-push-3 monBlock">
+    <button type="button" class="btn btn-primary btn-lg active" ng-click="pCarnet.back()">Home</button>
+    <button type="button" class="btn btn-primary btn-lg active" ng-click="pCarnet.newFacture()">Ajputer une nouvelle facture</button>
+</div>
+
+
+
+<div class="container theme-showcase" role="main">
+  <br/> <br/> <br/> <br/>
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+      <div class="container">
+
+        <div class="row">
+          <ul>
+            <facture ng-repeat="facture in pCarnet.factures" facture="facture"></facture>
+          </ul>
+        </div>
+      </div>
+  </div>
+</div>
+
