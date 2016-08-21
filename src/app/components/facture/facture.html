@@ -1,21 +1,46 @@
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
 <li>
-  <table class="table table-striped table-bordered">
-    <thead>
-      <tr>
-        <th><input type="checkbox" /></th>
-        <th>Nom du Produit</th>
-        <th>Prix</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="produit in factureCtrl.data.produits">
-        <td>
-          <input type="checkbox"/></td>
-        <td>
-          <input type="text" class="form-control" value="{{ produit.nom }}" required/></td>
-        <td>
-          <input class="form-control" value="{{ produit.prix }}"required/></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <button class="btn btn-danger" ng-click="factureCtrl.supprFacture()">Supprimer la facture</button>
+          <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+              <th></th>
+              <th>Nom du Produit</th>
+              <th>Prix</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="produit in factureCtrl.facture.produits track by $index">
+              <td>
+                <button ng-click="factureCtrl.supprProduit($index)">X</button>
+              <td>
+                <input type="text" class="form-control" ng-model="produit.nom" required/></td>
+              <td>
+                <input class="form-control" ng-model="produit.prix" required/></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td><strong>Total :{{ getTotal() }}</strong></td>
+            </tr>
+            </tbody>
+          </table>
+
+          <div class="form-group">
+            <input type="button" class="btn btn-success pull-right" value="Enregistrer la facture" ng-click="factureCtrl.saveFacture()" />
+            <input type="button" class="btn btn-primary addnew pull-right" value="Ajouter un produit" ng-click="factureCtrl.addProduit()">
+          </div>
+          <br/> <br/> <br/> <br/>
+
+            <a class="btn btn-info btn-lg" ng-click="factureCtrl.totalFacture()"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter au panier</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </li>
+

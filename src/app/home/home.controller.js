@@ -7,10 +7,22 @@
 
   function HomeController(carnet) {
     var home = this;
-    home.carnets = carnet.getCarnets(); // récupère l'object javascript data dans notebook.service
+    carnet.getCarnets()
+      .then(function success(res) {
+        home.carnets = res.data.carnets;
+      }, function error(res) {
+        console.log(res);
+      }); // récupère l'object javascript data dans notebook.service
 
     home.newCarnet = function() {
-      carnet.addCarnet(home.carnetTitle);
+      carnet.addCarnet(home.carnetTitle)
+        .then(function success(res) {
+          home.carnets.push({ title: home.carnetTitle });
+        }, function error(res) {
+          console.log(res);
+        });
     }
+
+
   }
 })();

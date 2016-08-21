@@ -1,1 +1,5 @@
-<li ng-click="carnetCtrl.openCarnet()" class="thumbnail notebook col-md-3 text-center">{{ carnetCtrl.homeCarnet.title }}</li>
+
+<li ng-click="carnetCtrl.openCarnet()" class="thumbnail notebook col-md-3 text-center">{{ carnetCtrl.homeCarnet.title }}
+  <br/><br/>
+  <button ng-click="carnetCtrl.supprCarnet()">Supprimer un carnet</button>
+</li>

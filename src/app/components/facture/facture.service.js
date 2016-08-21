@@ -6,32 +6,34 @@
     .service('facture', facture);
 
   // Le service te servira à récupérer les données, ici on les simule en créant un object javascript
-  function facture() {
-    var i = 4;
-    // data est un objet javascript
-    var factures = [
-      {
-        'id': 1,
-        'idCarnet': 1,
-        'produits': [{
-          'nom':'Orange',
-          'prix': 3.5,
-        }, {
-          'nom':'Ananas',
-          'prix': 4.0,
-        }, {
-          'nom':'Lait',
-          'prix':5.7,
-        }]
-      }
-    ];
+  function facture($http, apiUrl, localStorageService) {
 
     this.getFactures = function(idCarnet) {
-      var facturesReturn = [];
+      return $http({
+        method: 'GET',
+        headers: { 'x-access-token': localStorageService.get('session') },
+        url: apiUrl.concat('/carnet/' + idCarnet + '/factures')
+      });
+    }
+
+    this.new = function(idCarnet) {
+      return $http({
+        method: 'POST',
+        headers: { 'x-access-token': localStorageService.get('session') },
+        url: apiUrl.concat('/carnet/' + idCarnet + '/facture')
+      });
+    }
+
+    this.delete = function(facture) {
+      var index = factures.indexOf(facture);
+      factures.splice(index, 1);
+      console.log(factures);
+    }
+
+    this.save = function(pFacture) {
       for(var facture in factures) {
-        if(factures[facture].idCarnet == idCarnet) facturesReturn.push(factures[facture]);
+        if(factures[facture].id == pFacture.id) factures[facture] = pFacture;
       }
-      return facturesReturn;
     }
   }
 })();

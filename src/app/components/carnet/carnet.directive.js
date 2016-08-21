@@ -19,12 +19,21 @@
 
     return directive;
 
-    function CarnetController($location) {
+    function CarnetController($location, carnet) {
       var carnetCtrl = this;
 
       carnetCtrl.openCarnet = function() { // fonction qui ouvre une facture (note)
-        $location.path('/carnet/' + carnetCtrl.homeCarnet.id);
+        $location.path('/carnet/' + carnetCtrl.homeCarnet._id);
+      }
+      carnetCtrl.supprCarnet = function () {
+         carnet.delete(carnetCtrl.homeCarnet)
+           .then(function success(res) {
+             console.log(res);
+           }, function error(res) {
+             console.log(res);
+           });
       }
     }
+
   }
 })();

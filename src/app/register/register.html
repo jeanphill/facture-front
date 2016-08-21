@@ -1,0 +1,25 @@
+<form name="loginForm">
+
+  <div class="form-heading">
+    <div class="omb_login">
+      <h3 class="omb_authTitle">S'enregistrer ou  <a ng-href="#/login"> Se connecter </a></h3>
+      <br/> <br/>
+    <div class="container row omb_row-sm-offset-3">
+      <div class="container col-xs-12 col-sm-6">
+
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="Email" name="email" ng-model="registerCtrl.user.username" required/>
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" placeholder="Mot de passe" name="password" ng-model="registerCtrl.user.password" required/>
+        </div>
+
+        <button class="btn btn-default pull-right" ng-click="registerCtrl.register()">S'enregistrer</button>
+
+      </div>
+    </div>
+    </div>
+  </div>
+</form>
+

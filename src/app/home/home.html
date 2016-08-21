@@ -1,9 +1,27 @@
-<div class="container">
-  <div class="row">
-    <button ng-click="home.newCarnet()" class="btn btn-success">Ajouter carnet</button>
-    <input type="text" placeholder="nom du carnet" ng-model="home.carnetTitle"/>
-    <ul>
-      <carnet ng-repeat="carnet in home.carnets" home-carnet="carnet"></carnet>
-    </ul>
+<div class="container theme-showcase" role="main">
+
+  <button type="button" ng-click="home.newCarnet()" class="btn btn-primary btn-lg active">Ajouter carnet</button>
+
+  <div class="col-xs-4">
+    <input type="text" class="form-control" placeholder="Nom du carnet a Ajouter" ng-model="home.carnetTitle" />
+  </div>
+
+  <br/> <br/> <br/> <br/>
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+
+
+        <br/> <br/> <br/> <br/>
+
+        <ul>
+          <carnet ng-repeat="carnet in home.carnets" home-carnet="carnet"></carnet>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
+
+
